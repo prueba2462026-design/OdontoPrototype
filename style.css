@@ -1,238 +1,205 @@
-/* =========================================
-   1. IMPORTACIÓN DE FUENTES CORPORATIVAS
-   ========================================= */
-/* Usamos Montserrat para títulos imponentes y Open Sans para lectura clínica limpia */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap');
-
 :root {
-    /* Paleta Premium: Azules profundos, acentos celestes y fondos sedosos */
-    --azul-premium-base: #0a2540;
-    --azul-acento-cyan: #00d4ff;
-    --celeste-brillante: #0076ff;
-    --fondo-premium: #f4f7fa;
-    --texto-oscuro: #1c2a38;
-    --texto-mutado: #627d98;
-    --blanco-puro: #ffffff;
-    --blanco-translúcido: rgba(255, 255, 255, 0.8);
-    --shadow-premium: 0 20px 40px rgba(0, 0, 0, 0.06);
-    --verde-whatsapp: #25D366;
+    --azul-clinico: #0056b3;
+    --azul-claro: #e6f0fa;
+    --texto-oscuro: #1a2b49;
+    --texto-gris: #5a6b82;
+    --blanco: #ffffff;
+    --gris-fondo: #f8fafc;
 }
 
-/* Reset Profesional */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
-    font-family: 'Open Sans', sans-serif;
-    background-color: var(--fondo-premium);
+    background-color: var(--gris-fondo);
     color: var(--texto-oscuro);
-    line-height: 1.7;
-    overflow-x: hidden; /* Evita scroll lateral accidental */
 }
 
-/* Títulos con tipografía corporativa */
-h1, h2, h3, h4 {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-}
-
-/* =========================================
-   2. SECCIÓN PRINCIPAL (HERO) - LA TRANSFORMACIÓN
-   ========================================= */
-/* Ya no es solo un bloque azul plano. Es un degradado dinámico con profundidad. */
-.hero {
-    background: radial-gradient(circle at 80% 20%, rgba(0, 212, 255, 0.15) 0%, transparent 50%),
-                linear-gradient(135deg, var(--azul-premium-base) 0%, #07162c 100%);
-    color: var(--blanco-puro);
-    text-align: center;
-    padding: 10rem 2rem 8rem 2rem; /* Más espacio para respirar */
-    position: relative;
-    border-bottom: 5px solid var(--azul-acento-cyan);
-}
-
-/* Adorno geométrico sutil para romper la línea recta */
-.hero::before {
-    content: '';
-    position: absolute;
-    bottom: -1px;
-    left: 0;
-    width: 100%;
-    height: 60px;
-    background: var(--fondo-premium);
-    clip-path: polygon(0 100%, 100% 100%, 100% 0);
-}
-
-.hero h1 {
-    font-size: 3.8rem;
-    letter-spacing: -1.5px;
-    margin-bottom: 1rem;
-    background: linear-gradient(to right, #ffffff, #d2f4ff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.hero h2 {
-    font-size: 1.8rem;
-    font-weight: 400;
-    color: var(--azul-acento-cyan);
-    margin-bottom: 2rem;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-}
-
-.hero p {
-    max-width: 750px;
-    margin: 0 auto;
-    font-size: 1.25rem;
-    color: #bacbdc;
-    font-weight: 400;
-    opacity: 0.9;
-}
-
-/* =========================================
-   3. SECCIÓN DE SERVICIOS (TARJETAS AVANZADAS)
-   ========================================= */
-.servicios-contenedor {
-    padding: 8rem 2rem;
-    max-width: 1300px; /* Un poco más ancho */
-    margin: 0 auto;
-}
-
-.servicios-contenedor h3 {
-    text-align: center;
-    font-size: 2.8rem;
-    color: var(--azul-premium-base);
-    margin-bottom: 1rem;
-    position: relative;
-}
-
-/* Línea decorativa profesional debajo del título principal */
-.servicios-contenedor h3::after {
-    content: '';
-    display: block;
-    width: 70px;
-    height: 5px;
-    background-color: var(--azul-acento-cyan);
-    margin: 0.8rem auto 5rem auto;
-    border-radius: 2.5px;
-}
-
-.grid-servicios {
-    display: grid;
-    /* Grid súper responsivo que se adapta a cualquier pantalla */
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 3rem;
-}
-
-/* Estilo de Tarjeta Premium - Glassmorphism sutil */
-.tarjeta {
-    background: var(--blanco-translúcido);
-    backdrop-filter: blur(8px); /* Efecto desenfoque cristal */
-    -webkit-backdrop-filter: blur(8px);
-    padding: 4rem 2.5rem;
-    border-radius: 20px;
-    box-shadow: var(--shadow-premium);
-    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1); /* Transición suave premium */
-    position: relative;
-    overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.2); /* Borde suave */
-}
-
-/* Micro-interacción: Efecto de barra brillante al pasar el mouse */
-.tarjeta::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 6px;
-    background: linear-gradient(to right, var(--celeste-brillante), var(--azul-acento-cyan));
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.5s ease;
-}
-
-.tarjeta:hover {
-    transform: translateY(-12px); /* Un poco más de elevación */
-    box-shadow: 0 40px 80px rgba(10, 37, 64, 0.15); /* Sombra más profunda */
-}
-
-.tarjeta:hover::before {
-    transform: scaleX(1);
-}
-
-.tarjeta h4 {
-    color: var(--azul-premium-base);
-    font-size: 1.5rem;
-    margin-bottom: 1.2rem;
-}
-
-.tarjeta p {
-    color: var(--texto-mutado);
-    font-size: 1.05rem;
-}
-
-/* =========================================
-   4. INTERACTIVIDAD Y CONTACTO (FOOTER)
-   ========================================= */
-/* El bloque negro plano de image_1.png ahora es un pie de página corporativo suave. */
-.footer {
-    background-color: var(--azul-premium-base);
-    color: var(--blanco-puro);
-    text-align: center;
-    padding: 8rem 2rem 5rem 2rem;
-    position: relative;
-    box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.1); /* Sombrado superior */
-}
-
-.footer h3 {
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
-    color: var(--azul-acento-cyan);
-}
-
-.footer p {
-    font-size: 1.15rem;
-    margin-bottom: 1rem;
-    color: #bacbdc;
-    opacity: 0.8;
-}
-
-.footer p span {
-    color: var(--blanco-puro);
-    font-weight: 600;
-}
-
-/* El botón de WhatsApp de image_1.png ahora es un Botón de Acción Flotante Premium */
-#contacto-whatsapp {
-    display: inline-flex;
+/* ==============================
+   1. NAVBAR (ESTILO MAQUETA)
+   ============================== */
+.navbar {
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
-    background: linear-gradient(135deg, var(--verde-whatsapp) 0%, #1da851 100%);
-    color: var(--blanco-puro);
+    padding: 1.5rem 4rem;
+    background: var(--blanco);
+    border-bottom: 1px solid #e2e8f0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: var(--azul-clinico);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-links a {
     text-decoration: none;
-    padding: 1.4rem 3rem;
-    border-radius: 50px;
-    font-weight: 600;
-    font-size: 1.2rem;
-    margin-top: 3rem;
-    box-shadow: 0 15px 30px rgba(37, 211, 102, 0.35); /* Sombra de color para destacar */
-    transition: all 0.3s ease;
+    color: var(--texto-gris);
+    font-weight: 500;
 }
 
-#contacto-whatsapp:hover {
-    transform: translateY(-5px); /* Pequeña elevación */
-    box-shadow: 0 20px 40px rgba(37, 211, 102, 0.5); /* Sombra más fuerte */
-    background: linear-gradient(135deg, #1da851 0%, var(--verde-whatsapp) 100%); /* Efecto inversión degradado */
+.nav-cta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
 }
 
-/* Micro-interacciones Finas: Responsividad Avanzada */
-@media (max-width: 900px) {
-    .hero h1 { font-size: 2.8rem; }
-    .hero h2 { font-size: 1.4rem; }
-    .hero { padding: 8rem 1.5rem 6rem 1.5rem; }
-    .servicios-contenedor { padding: 6rem 1.5rem; }
+/* Botones */
+.btn-primary, .btn-primary-large {
+    background-color: var(--azul-clinico);
+    color: var(--blanco);
+    text-decoration: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 4px;
+    font-weight: 500;
+}
+
+.btn-primary-large {
+    padding: 0.8rem 2rem;
+    display: inline-block;
+    margin-top: 1.5rem;
+}
+
+.btn-outline {
+    border: 1px solid #cbd5e1;
+    color: var(--texto-oscuro);
+    text-decoration: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 4px;
+}
+
+/* ==============================
+   2. HERO ASIMÉTRICO (SPLIT)
+   ============================== */
+.hero-split {
+    display: grid;
+    grid-template-columns: 45% 55%;
+    height: 85vh;
+    margin-top: 75px; /* Por el navbar fijo */
+}
+
+.hero-content {
+    background-color: #f0f7ff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 4rem;
+}
+
+.hero-content h1 {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    color: var(--texto-oscuro);
+}
+
+.hero-content p {
+    color: var(--texto-gris);
+    font-size: 1.1rem;
+}
+
+/* Espacio gris limpio simulando el área de la fotografía */
+.hero-image-placeholder {
+    background-color: #dbeafe; /* Azul muy suave donde irá la foto después */
+}
+
+/* ==============================
+   3. SECCIÓN DE SERVICIOS (GRID IGUAL A LA IMAGEN)
+   ============================== */
+.seccion-servicios {
+    padding: 5rem 4rem;
+    background-color: var(--blanco);
+}
+
+.grid-tratamientos {
+    display: grid;
+    /* 4 columnas: la primera para el título de la sección, las otras 3 para los servicios */
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+/* Estilo de los bloques de servicio estilo la muestra */
+.tarjeta-tratamiento {
+    background-color: var(--azul-claro);
+    padding: 2.5rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 280px;
+    border-radius: 4px;
+}
+
+.tarjeta-cuerpo h4 {
+    font-size: 1.3rem;
+    color: var(--azul-clinico);
+    margin-bottom: 1rem;
+}
+
+.tarjeta-cuerpo p {
+    font-size: 0.95rem;
+    color: var(--texto-gris);
+}
+
+.tarjeta-icono {
+    font-size: 1.8rem;
+    color: var(--azul-clinico);
+    text-align: left;
+    margin-top: 2rem;
+}
+
+/* Ocultamos el header estándar de servicios porque la muestra tiene el botón integrado abajo */
+.servicios-header {
+    display: none; 
+}
+
+/* Ajuste para que el primer servicio se acomode al lado del bloque de título si fuera necesario, 
+   pero aplicando directamente el layout de tu imagen, metemos el título dentro del grid */
+.grid-tratamientos::before {
+    content: "ELS NOSTRES TRACTAMENTS DENTALS";
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--azul-clinico);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-right: 1rem;
+}
+
+/* ==============================
+   4. FOOTER
+   ============================== */
+.footer {
+    background-color: var(--texto-oscuro);
+    color: var(--blanco);
+    text-align: center;
+    padding: 4rem 2rem;
+}
+
+#contacto-whatsapp {
+    display: inline-block;
+    background-color: #25D366;
+    color: white;
+    text-decoration: none;
+    padding: 0.8rem 2rem;
+    border-radius: 4px;
+    margin-top: 1rem;
 }
