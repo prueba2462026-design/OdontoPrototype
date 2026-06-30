@@ -1,17 +1,24 @@
 /* =========================================
-   1. VARIABLES Y CONFIGURACIÓN BASE
+   1. IMPORTACIÓN DE FUENTES CORPORATIVAS
    ========================================= */
+/* Usamos Montserrat para títulos imponentes y Open Sans para lectura clínica limpia */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap');
+
 :root {
-    /* Paleta de colores clínicos: Limpios y profesionales */
-    --azul-medico: #0ea5e9;
-    --azul-oscuro: #0369a1;
-    --fondo-claro: #f8fafc;
-    --texto-principal: #334155;
-    --texto-secundario: #64748b;
-    --blanco: #ffffff;
+    /* Paleta Premium: Azules profundos, acentos celestes y fondos sedosos */
+    --azul-premium-base: #0a2540;
+    --azul-acento-cyan: #00d4ff;
+    --celeste-brillante: #0076ff;
+    --fondo-premium: #f4f7fa;
+    --texto-oscuro: #1c2a38;
+    --texto-mutado: #627d98;
+    --blanco-puro: #ffffff;
+    --blanco-translúcido: rgba(255, 255, 255, 0.8);
+    --shadow-premium: 0 20px 40px rgba(0, 0, 0, 0.06);
     --verde-whatsapp: #25D366;
 }
 
+/* Reset Profesional */
 * {
     margin: 0;
     padding: 0;
@@ -19,128 +26,213 @@
 }
 
 body {
-    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    background-color: var(--fondo-claro);
-    color: var(--texto-principal);
-    line-height: 1.6;
+    font-family: 'Open Sans', sans-serif;
+    background-color: var(--fondo-premium);
+    color: var(--texto-oscuro);
+    line-height: 1.7;
+    overflow-x: hidden; /* Evita scroll lateral accidental */
+}
+
+/* Títulos con tipografía corporativa */
+h1, h2, h3, h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
 }
 
 /* =========================================
-   2. SECCIÓN PRINCIPAL (HERO)
+   2. SECCIÓN PRINCIPAL (HERO) - LA TRANSFORMACIÓN
    ========================================= */
+/* Ya no es solo un bloque azul plano. Es un degradado dinámico con profundidad. */
 .hero {
-    background: linear-gradient(135deg, var(--azul-oscuro), var(--azul-medico));
-    color: var(--blanco);
+    background: radial-gradient(circle at 80% 20%, rgba(0, 212, 255, 0.15) 0%, transparent 50%),
+                linear-gradient(135deg, var(--azul-premium-base) 0%, #07162c 100%);
+    color: var(--blanco-puro);
     text-align: center;
-    padding: 6rem 2rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 10rem 2rem 8rem 2rem; /* Más espacio para respirar */
+    position: relative;
+    border-bottom: 5px solid var(--azul-acento-cyan);
+}
+
+/* Adorno geométrico sutil para romper la línea recta */
+.hero::before {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background: var(--fondo-premium);
+    clip-path: polygon(0 100%, 100% 100%, 100% 0);
 }
 
 .hero h1 {
-    font-size: 3rem;
-    margin-bottom: 0.5rem;
-    letter-spacing: -1px;
+    font-size: 3.8rem;
+    letter-spacing: -1.5px;
+    margin-bottom: 1rem;
+    background: linear-gradient(to right, #ffffff, #d2f4ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .hero h2 {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     font-weight: 400;
-    margin-bottom: 1.5rem;
-    opacity: 0.9;
+    color: var(--azul-acento-cyan);
+    margin-bottom: 2rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
 }
 
 .hero p {
-    max-width: 600px;
+    max-width: 750px;
     margin: 0 auto;
-    font-size: 1.1rem;
-    opacity: 0.8;
+    font-size: 1.25rem;
+    color: #bacbdc;
+    font-weight: 400;
+    opacity: 0.9;
 }
 
 /* =========================================
-   3. SECCIÓN DE SERVICIOS (GRID)
+   3. SECCIÓN DE SERVICIOS (TARJETAS AVANZADAS)
    ========================================= */
 .servicios-contenedor {
-    padding: 5rem 2rem;
-    max-width: 1200px;
+    padding: 8rem 2rem;
+    max-width: 1300px; /* Un poco más ancho */
     margin: 0 auto;
 }
 
 .servicios-contenedor h3 {
     text-align: center;
-    font-size: 2.2rem;
-    color: var(--azul-oscuro);
-    margin-bottom: 3rem;
+    font-size: 2.8rem;
+    color: var(--azul-premium-base);
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+/* Línea decorativa profesional debajo del título principal */
+.servicios-contenedor h3::after {
+    content: '';
+    display: block;
+    width: 70px;
+    height: 5px;
+    background-color: var(--azul-acento-cyan);
+    margin: 0.8rem auto 5rem auto;
+    border-radius: 2.5px;
 }
 
 .grid-servicios {
     display: grid;
-    /* Magia pura de CSS: Se adapta a móviles y pantallas grandes automáticamente */
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
+    /* Grid súper responsivo que se adapta a cualquier pantalla */
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 3rem;
 }
 
-/* Estilo de cada Tarjeta de Servicio */
+/* Estilo de Tarjeta Premium - Glassmorphism sutil */
 .tarjeta {
-    background-color: var(--blanco);
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border-top: 4px solid var(--azul-medico);
+    background: var(--blanco-translúcido);
+    backdrop-filter: blur(8px); /* Efecto desenfoque cristal */
+    -webkit-backdrop-filter: blur(8px);
+    padding: 4rem 2.5rem;
+    border-radius: 20px;
+    box-shadow: var(--shadow-premium);
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1); /* Transición suave premium */
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Borde suave */
+}
+
+/* Micro-interacción: Efecto de barra brillante al pasar el mouse */
+.tarjeta::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    background: linear-gradient(to right, var(--celeste-brillante), var(--azul-acento-cyan));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.5s ease;
 }
 
 .tarjeta:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    transform: translateY(-12px); /* Un poco más de elevación */
+    box-shadow: 0 40px 80px rgba(10, 37, 64, 0.15); /* Sombra más profunda */
+}
+
+.tarjeta:hover::before {
+    transform: scaleX(1);
 }
 
 .tarjeta h4 {
-    color: var(--azul-oscuro);
-    font-size: 1.3rem;
-    margin-bottom: 1rem;
+    color: var(--azul-premium-base);
+    font-size: 1.5rem;
+    margin-bottom: 1.2rem;
 }
 
 .tarjeta p {
-    color: var(--texto-secundario);
-    font-size: 0.95rem;
+    color: var(--texto-mutado);
+    font-size: 1.05rem;
 }
 
 /* =========================================
-   4. FOOTER Y CONTACTO
+   4. INTERACTIVIDAD Y CONTACTO (FOOTER)
    ========================================= */
+/* El bloque negro plano de image_1.png ahora es un pie de página corporativo suave. */
 .footer {
-    background-color: #1e293b;
-    color: var(--blanco);
+    background-color: var(--azul-premium-base);
+    color: var(--blanco-puro);
     text-align: center;
-    padding: 4rem 2rem;
-    margin-top: 2rem;
+    padding: 8rem 2rem 5rem 2rem;
+    position: relative;
+    box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.1); /* Sombrado superior */
 }
 
 .footer h3 {
-    font-size: 1.8rem;
-    margin-bottom: 1.5rem;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: var(--azul-acento-cyan);
 }
 
 .footer p {
-    margin-bottom: 0.5rem;
+    font-size: 1.15rem;
+    margin-bottom: 1rem;
+    color: #bacbdc;
     opacity: 0.8;
 }
 
-/* Botón de WhatsApp */
+.footer p span {
+    color: var(--blanco-puro);
+    font-weight: 600;
+}
+
+/* El botón de WhatsApp de image_1.png ahora es un Botón de Acción Flotante Premium */
 #contacto-whatsapp {
-    display: inline-block;
-    background-color: var(--verde-whatsapp);
-    color: var(--blanco);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--verde-whatsapp) 0%, #1da851 100%);
+    color: var(--blanco-puro);
     text-decoration: none;
-    padding: 1rem 2rem;
+    padding: 1.4rem 3rem;
     border-radius: 50px;
-    font-weight: bold;
-    font-size: 1.1rem;
-    margin-top: 2rem;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin-top: 3rem;
+    box-shadow: 0 15px 30px rgba(37, 211, 102, 0.35); /* Sombra de color para destacar */
+    transition: all 0.3s ease;
 }
 
 #contacto-whatsapp:hover {
-    background-color: #1da851;
-    transform: scale(1.05);
+    transform: translateY(-5px); /* Pequeña elevación */
+    box-shadow: 0 20px 40px rgba(37, 211, 102, 0.5); /* Sombra más fuerte */
+    background: linear-gradient(135deg, #1da851 0%, var(--verde-whatsapp) 100%); /* Efecto inversión degradado */
+}
+
+/* Micro-interacciones Finas: Responsividad Avanzada */
+@media (max-width: 900px) {
+    .hero h1 { font-size: 2.8rem; }
+    .hero h2 { font-size: 1.4rem; }
+    .hero { padding: 8rem 1.5rem 6rem 1.5rem; }
+    .servicios-contenedor { padding: 6rem 1.5rem; }
 }
