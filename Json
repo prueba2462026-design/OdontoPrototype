@@ -1,0 +1,49 @@
+{
+  "clinica": {
+    "nombre": "Clínica Dental OdontoSana",
+    "slogan": "Tu sonrisa en las mejores manos",
+    "logo_url": "images/logo.png",
+    "sobre_nosotros": "En OdontoSana nos dedicamos a ofrecer servicios odontológicos de alta calidad en un ambiente cálido y profesional. Nuestro equipo de especialistas está comprometido con la salud y estética dental de toda tu familia, utilizando tecnología de vanguardia."
+  },
+  "servicios": [
+    {
+      "id": "odontologia-general",
+      "titulo": "Odontología General",
+      "descripcion": "Limpiezas dentales profundas, eliminación de caries y evaluaciones preventivas para mantener tu boca sana.",
+      "icono": "fa-tooth"
+    },
+    {
+      "id": "ortodoncia",
+      "titulo": "Ortodoncia Avanzada",
+      "descripcion": "Brackets estéticos e invisalign para alinear tus dientes y mejorar la funcionalidad de tu mordida.",
+      "icono": "fa-teeth-open"
+    },
+    {
+      "id": "estetica-dental",
+      "titulo": "Estética y Blanqueamiento",
+      "descripcion": "Diseño de sonrisa, carillas de porcelana y blanqueamiento láser para una sonrisa radiante.",
+      "icono": "fa-sparkles"
+    },
+    {
+      "id": "implantes",
+      "titulo": "Implantes Dentales",
+      "descripcion": "Restauración de piezas faltantes con tecnología segura, duradera y de aspecto completamente natural.",
+      "icono": "fa-shuttle-space"
+    }
+  ],
+  "contacto": {
+    "telefono": "+504 9999-9999",
+    "correo": "contacto@odontosana.com",
+    "direccion": "Centro Médico Profesional, Local 204, Comayagua, Honduras",
+    "horarios": {
+      "semana": "Lunes a Viernes: 8:00 AM - 5:00 PM",
+      "sabado": "Sábados: 8:00 AM - 12:00 PM",
+      "domingo": "Domingo: Cerrado"
+    },
+    "redes_sociales": {
+      "instagram": "https://instagram.com/odontosana",
+      "facebook": "https://facebook.com/odontosana",
+      "whatsapp": "https://wa.me/50499999999"
+    }
+  }
+}
