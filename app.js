@@ -1,32 +1,37 @@
-// Hacemos la llamada al archivo JSON
 fetch('datos.json')
     .then(respuesta => respuesta.json())
     .then(datos => {
-        
-        // 1. Cargar datos de la Clínica
-        document.getElementById('clinica-nombre').textContent = datos.clinica.nombre;
+        // Asignar textos principales
         document.getElementById('clinica-slogan').textContent = datos.clinica.slogan;
         document.getElementById('clinica-sobre-nosotros').textContent = datos.clinica.sobre_nosotros;
-
-        // 2. Cargar datos de Contacto
-        document.getElementById('contacto-telefono').textContent = datos.contacto.telefono;
         document.getElementById('contacto-direccion').textContent = datos.contacto.direccion;
         document.getElementById('contacto-whatsapp').href = datos.contacto.redes_sociales.whatsapp;
 
-        // 3. Cargar los Servicios dinámicamente
         const contenedorServicios = document.getElementById('lista-servicios');
-        
+        contenedorServicios.innerHTML = ''; // Limpiar
+
+        // Mapeo de íconos para que se vean como en tu ejemplo
+        const iconMapping = {
+            "odontologia-general": "fa-user-doctor",
+            "ortodoncia": "fa-teeth",
+            "estetica-dental": "fa-sparkles",
+            "implantes": "fa-tooth"
+        };
+
         datos.servicios.forEach(servicio => {
-            // Creamos una tarjeta HTML por cada servicio en el JSON
+            const iconClass = iconMapping[servicio.id] || "fa-tooth";
             const tarjetaHTML = `
-                <div class="tarjeta">
-                    <h4>${servicio.titulo}</h4>
-                    <p>${servicio.descripcion}</p>
+                <div class="tarjeta-tratamiento">
+                    <div class="tarjeta-cuerpo">
+                        <h4>${servicio.titulo}</h4>
+                        <p>${servicio.descripcion}</p>
+                    </div>
+                    <div class="tarjeta-icono">
+                        <i class="fa-solid ${iconClass}"></i>
+                    </div>
                 </div>
             `;
-            // La inyectamos en el contenedor
             contenedorServicios.innerHTML += tarjetaHTML;
         });
-
     })
-    .catch(error => console.error("Hubo un error cargando el JSON:", error));
+    .catch(error => console.error("Error:", error));
