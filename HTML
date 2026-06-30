@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Odontología Profesional</title>
+    <!-- Aquí irá nuestro CSS más adelante -->
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+
+    <!-- Sección Principal (Hero) -->
+    <header class="hero">
+        <h1 id="clinica-nombre"></h1>
+        <h2 id="clinica-slogan"></h2>
+        <p id="clinica-sobre-nosotros"></p>
+    </header>
+
+    <!-- Sección de Servicios -->
+    <section class="servicios-contenedor">
+        <h3>Nuestros Servicios</h3>
+        <!-- JavaScript inyectará las tarjetas de servicios aquí adentro -->
+        <div id="lista-servicios" class="grid-servicios"></div>
+    </section>
+
+    <!-- Footer y Contacto -->
+    <footer class="footer">
+        <h3>Contacto y Citas</h3>
+        <p>Teléfono: <span id="contacto-telefono"></span></p>
+        <p>Dirección: <span id="contacto-direccion"></span></p>
+        <a id="contacto-whatsapp" href="#" target="_blank">Agendar por WhatsApp</a>
+    </footer>
+
+    <!-- Aquí conectamos el motor -->
+    <script src="app.js"></script>
+</body>
+</html>
