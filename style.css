@@ -1,0 +1,146 @@
+/* =========================================
+   1. VARIABLES Y CONFIGURACIÓN BASE
+   ========================================= */
+:root {
+    /* Paleta de colores clínicos: Limpios y profesionales */
+    --azul-medico: #0ea5e9;
+    --azul-oscuro: #0369a1;
+    --fondo-claro: #f8fafc;
+    --texto-principal: #334155;
+    --texto-secundario: #64748b;
+    --blanco: #ffffff;
+    --verde-whatsapp: #25D366;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--fondo-claro);
+    color: var(--texto-principal);
+    line-height: 1.6;
+}
+
+/* =========================================
+   2. SECCIÓN PRINCIPAL (HERO)
+   ========================================= */
+.hero {
+    background: linear-gradient(135deg, var(--azul-oscuro), var(--azul-medico));
+    color: var(--blanco);
+    text-align: center;
+    padding: 6rem 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: -1px;
+}
+
+.hero h2 {
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+    opacity: 0.9;
+}
+
+.hero p {
+    max-width: 600px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    opacity: 0.8;
+}
+
+/* =========================================
+   3. SECCIÓN DE SERVICIOS (GRID)
+   ========================================= */
+.servicios-contenedor {
+    padding: 5rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.servicios-contenedor h3 {
+    text-align: center;
+    font-size: 2.2rem;
+    color: var(--azul-oscuro);
+    margin-bottom: 3rem;
+}
+
+.grid-servicios {
+    display: grid;
+    /* Magia pura de CSS: Se adapta a móviles y pantallas grandes automáticamente */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+/* Estilo de cada Tarjeta de Servicio */
+.tarjeta {
+    background-color: var(--blanco);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-top: 4px solid var(--azul-medico);
+}
+
+.tarjeta:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.tarjeta h4 {
+    color: var(--azul-oscuro);
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+}
+
+.tarjeta p {
+    color: var(--texto-secundario);
+    font-size: 0.95rem;
+}
+
+/* =========================================
+   4. FOOTER Y CONTACTO
+   ========================================= */
+.footer {
+    background-color: #1e293b;
+    color: var(--blanco);
+    text-align: center;
+    padding: 4rem 2rem;
+    margin-top: 2rem;
+}
+
+.footer h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+}
+
+.footer p {
+    margin-bottom: 0.5rem;
+    opacity: 0.8;
+}
+
+/* Botón de WhatsApp */
+#contacto-whatsapp {
+    display: inline-block;
+    background-color: var(--verde-whatsapp);
+    color: var(--blanco);
+    text-decoration: none;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-top: 2rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#contacto-whatsapp:hover {
+    background-color: #1da851;
+    transform: scale(1.05);
+}
